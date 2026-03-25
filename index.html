@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Mobile | Gadget Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Stellar Mobile</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#inventory">Inventory</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Next-Gen Gadget Showcase</h1>
+        <p>Real-time inventory tracking for premium mobile devices.</p>
+    </header>
+
+    <section class="search-container">
+        <input type="text" id="phoneSearch" placeholder="Search for a model (e.g. Nexus, Zenith)..." onkeyup="filterPhones()">
+    </section>
+
+    <main id="inventory">
+        <div class="product-grid" id="productGrid">
+            <div class="card">
+                <div class="badge">In Stock</div>
+                <h3>Nexus Pro 15</h3>
+                <p>256GB | Titan Grey</p>
+                <button>View Specs</button>
+            </div>
+            <div class="card">
+                <div class="badge">Low Stock</div>
+                <h3>Zenith Fold X</h3>
+                <p>512GB | Midnight Blue</p>
+                <button>View Specs</button>
+            </div>
+            <div class="card">
+                <div class="badge out">Out of Stock</div>
+                <h3>Aura Lite</h3>
+                <p>128GB | Pearl White</p>
+                <button disabled>Pre-order</button>
+            </div>
+            <div class="card">
+                <div class="badge">In Stock</div>
+                <h3>Titanium S26</h3>
+                <p>1TB | Obsidian</p>
+                <button>View Specs</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Stellar Mobile | Professional Portfolio Project</p>
+    </footer>
+
+    <script>
+        function filterPhones() {
+            const input = document.getElementById('phoneSearch').value.toLowerCase();
+            const cards = document.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
